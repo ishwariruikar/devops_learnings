@@ -1,0 +1,91 @@
+Important Docker Commands - Cheat Sheet
+
+Docker Lifecycle Commands
+•	docker create --name <container_name> <image> — Create a new container from an image
+•	docker run [OPTIONS] <image> [COMMAND] — Create and start a container
+•	docker pause <container_name> — Pause all processes in a container
+•	docker unpause <container_name> — Resume processes in a paused container
+•	docker stop <container_name> — Stop a running container
+•	docker start <container_name> — Start a stopped container
+•	docker restart <container_name> — Restart a container
+•	docker attach <container_name> — Attach to a running container
+•	docker wait <container_name> — Block until container stops and return its exit code
+•	docker rm <container_name> — Remove a stopped container
+•	docker kill <container_name> — Forcefully stop a container
+Docker Image Commands
+•	docker pull <image>:<tag> — Pull an image from Docker Hub
+•	docker build -t <image_name>:<tag> <path> — Build an image from a Dockerfile
+•	docker commit <container_name> <new_image_name> — Save container state as a new image
+•	docker images — List all local images
+•	docker rmi <image_name> — Remove a Docker image
+•	docker tag <source_image> <target_image>:<tag> — Add a tag to an image
+•	docker push <image_name>:<tag> — Push an image to Docker Hub
+•	docker save -o <filename>.tar <image> — Save image to a tar archive
+•	docker load -i <filename>.tar — Load image from a tar archive
+•	docker history <image> — Show image layers and history
+•	docker inspect <image> — Show detailed info about an image
+•	docker export <container> > <filename>.tar — Export container's filesystem
+•	docker import <filename>.tar <image_name> — Create image from a tarball
+
+Docker Volume Commands
+•	docker volume create <volume_name> — Create a volume
+•	docker volume inspect <volume_name> — View volume details
+•	docker volume rm <volume_name> — Remove a volume
+Docker Network Commands
+•	docker network create <network_name> — Create a network
+•	docker network ls — List all networks
+•	docker network inspect <network_name> — Inspect a network's configuration
+Docker Container Commands
+•	docker exec -it <container> <command> — Execute command inside a running container
+•	docker logs <container> — View container logs
+•	docker cp <source> <container>:<destination> — Copy files from host to container
+•	docker cp <container>:<source> <destination> — Copy files from container to host
+•	docker rename <old_name> <new_name> — Rename a container
+•	docker inspect <container> — View detailed info of a container
+Docker Compose Commands
+•	docker-compose build — Build services defined in docker-compose.yml
+•	docker-compose up -d — Start services in detached mode
+•	docker-compose start — Start existing services
+•	docker-compose ps — List running services
+•	docker-compose rm — Remove stopped services
+•	docker-compose run <service> <command> — Run a one-off command
+Logs & Monitoring
+•	docker ps — List running containers
+•	docker ps -a — List all containers
+•	docker stats — Show real-time usage stats
+•	docker top <container> — Show running processes in a container
+•	docker events — Display real-time Docker events
+•	docker port <container> — Show container's exposed ports
+
+Docker Prune & Cleanup
+•	docker system prune -a — Remove unused data (images, containers, etc.)
+•	docker image prune -a — Remove unused and dangling images
+•	docker container prune — Remove all stopped containers
+•	docker volume prune — Remove unused volumes
+•	docker network prune — Remove unused networks
+Docker Hub Commands
+•	docker search <term> — Search images on Docker Hub
+•	docker login — Login to Docker Hub
+•	docker logout — Logout from Docker Hub
+•	docker pull <image>:<tag> — Download image from Docker Hub
+•	docker push <image>:<tag> — Upload image to Docker Hub
+•	docker tag <source> <user/repo>:<tag> — Tag an image for upload
+Advance Docker Commands 
+•	docker exec -it <container> /bin/bash — Open interactive bash shell inside container
+•	docker exec -it <container> sh — Open shell session for Alpine/lightweight containers
+•	docker inspect -f '{{ .NetworkSettings.IPAddress }}' <container> — Display container's internal IP address
+•	docker diff <container> — Show file system changes inside a running/stopped container
+•	docker run -it <image> bash — Run container interactively with terminal
+•	docker run -d <image> — Start container in detached/background mode
+•	docker run --rm <image> — Auto-remove container when it exits
+•	docker run --name <name> <image> — Assign a name to the container
+•	docker run -v /host:/container <image> — Mount a host directory as a volume
+•	docker run -p 8080:80 <image> — Map host port 8080 to container port 80
+•	docker build -f <Dockerfile.dev> -t <image> — Build image using a custom Dockerfile
+•	docker save <image> > image.tar — Save image as a tar archive (backup/export)
+•	docker load < image.tar — Load image from a tar archive
+•	docker network connect <network> <container> — Connect a container to another network
+•	docker logs -f <container> — Follow container logs in real time
+•	docker-compose logs -f — Follow logs from all services in a Docker Compose project
+•	docker-compose down -v — Stop containers and remove associated volumes
+•	docker-compose up --build — Rebuild images before starting services
